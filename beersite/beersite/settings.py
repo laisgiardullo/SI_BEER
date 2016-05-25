@@ -81,6 +81,8 @@ DATABASES = {
         'NAME': 'beer_db',                     
         'USER': 'beer',
         'PASSWORD': 'beer',
+        'HOST': 'labsoft.pcs.usp.br',
+        'PORT': '3306',
     }
 }
 
