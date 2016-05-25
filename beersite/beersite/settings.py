@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'webapp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,8 +79,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
         'NAME': 'beer_db',                     
-        'USER': 'admin',
-        'PASSWORD': 'beer1234',
+        'USER': 'beer',
+        'PASSWORD': 'beer',
+        'HOST': 'labsoft.pcs.usp.br',
+        'PORT': '3306',
     }
 }
 
