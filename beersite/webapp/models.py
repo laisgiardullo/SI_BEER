@@ -26,8 +26,10 @@ class Usuario(models.Model):
 	user = models.OneToOneField(User, on_delete = models.CASCADE)
 	endereco = models.TextField()
 	data_de_nascimento = models.DateField(auto_now = False, auto_now_add = False)
-	preferencias_cerveja = models.ManyToManyField(Tipo)
-
+	CPF = models.CharField(max_length = 20, blank = True, null = True)
+	telefone = models.CharField(max_length = 20, blank = True, null = True)
+	n_cartao = models.CharField(max_length = 20, blank = True, null = True)
+	
 	def __unicode__(self):
 		return self.user.username
 		
