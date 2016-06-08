@@ -4,6 +4,6 @@ bin
 lib
 include
 .DS_Store
-.pyc
+*.pyc
 __pycache__
 db.sqlite3
