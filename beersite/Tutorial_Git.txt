@@ -1,0 +1,14 @@
+Para atualizar:
+
+checkout master
+git pull
+checkout (nome branch)
+git rebase master
+
+Para passar suas mudanças:
+
+git add: (se colocou coisas novas)
+git commit : tudo que vc modificou
+git push : colocar no servidor
+git status : ver mudanças
+git log: ver commits
