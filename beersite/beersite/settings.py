@@ -74,11 +74,12 @@ WSGI_APPLICATION = 'beersite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
+# mysql.connector.django
+# django.db.backends.mysql
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'beer_db',                     
+        'NAME': 'beer',                     
         'USER': 'beer',
         'PASSWORD': 'beer',
         'HOST': 'labsoft.pcs.usp.br',
