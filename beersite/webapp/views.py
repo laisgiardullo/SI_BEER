@@ -47,7 +47,7 @@ def register_user(request):
 	args.update(csrf(request))
 	args['form'] = UserCreationForm()
 	print args
-	return render_to_response('webapp/register.html', args)
+	return render_to_response('webapp/login.html', args)
 
 def register_success(request):
 	return render_to_response('webapp/register_success.html')
