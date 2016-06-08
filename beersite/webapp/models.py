@@ -16,7 +16,7 @@ class Cerveja(models.Model):
 	fornecedor = models.CharField(max_length = 120)
 	timestamp = models.DateTimeField(auto_now_add = True, auto_now = False)
 	preco = models.DecimalField(max_digits=5, decimal_places=2)
-	quantidadeNoPacote = AutoField(max_digits = 2)
+	quantidadeNoPacote = models.DecimalField(max_digits = 2, decimal_places = 0)
 	descricao = models.TextField()
 
 	def __unicode__(self):
@@ -57,13 +57,13 @@ class Assinatura(models.Model):
 		return self.user.username
 
 class Conteudo(models.Model):
-	quantidade = models.AutoField(max_digits=6)
+	quantidade = models.DecimalField(max_digits = 4, decimal_places = 0)
 
 	def __unicode__(self):
 		return self.user.username
 
 class Itens(models.Model):
-	quantidade = models.AutoField(max_digits=6)
+	quantidade = models.DecimalField(max_digits = 2, decimal_places = 0)
 
 	def __unicode__(self):
 		return self.user.username
@@ -78,7 +78,7 @@ class Pedido(models.Model):
 		return self.user.username
 
 class Fornecedor(models.Model):
-	CNPJ = models.AutoField(max_digits = 14)
+	CNPJ = models.DecimalField(max_digits = 14, decimal_places = 0)
 	endereco = models.TextField()
 	status = models.CharField(max_length = 40)
 	
