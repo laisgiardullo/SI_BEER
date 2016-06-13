@@ -1,11 +1,15 @@
 {% extends "webapp/header.html" %}
   {% block content %}
   
+  {% if data == "erro" %}
+  	<p class = "error">Desculpe, você precisa estar logado para assinar um pacote</p>
+  {% endif %}
+ 
   {% if form.errors %}
-  	<p class = "error">Sorry, the username and/or password is invalid!</p>
+  	<p class = "error">Desculpe, o nome de usuário e/ou senha estão incorretos!</p>
   {% endif %}
   
- 	<form action = "/accounts/auth/" method = "post"> {% csrf_token %}
+ 	<form action = "/auth/" method = "post"> {% csrf_token %}
   		<label for = "username">Username: </label>
   		<input type = "text" name = "username" value = "" id = "username">
   		<label for = "password">Password: </label>

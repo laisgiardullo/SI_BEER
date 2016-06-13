@@ -1,16 +1,16 @@
 {% extends "webapp/header.html" %}
   
   {% block content %}
-  
-	<h1>Register with Beer</h1>
+  	<h1>Adicionar cerveja</h1>
 
     {% if registered %}
-    Beer says: <strong>thank you for registering!</strong>
+    Beer says: <strong>Nova cerveja registrada!</strong><br>
     <a href="/">Return to the homepage.</a><br />
-    {% else %}
-    Beer says: <strong>Register here!</strong><br />
+    {% endif %}
+    
+    <strong>Registrar nova cerveja!</strong><br />
 
-    <form id="user_form" method="post" action="/register/"
+    <form id="beer_form" method="post" action="/add_beer/"
                 enctype="multipart/form-data">
 
         {% csrf_token %}
@@ -18,13 +18,11 @@
             <!-- Display each form. The as_p method wraps each element in a paragraph
                  (<p>) element. This ensures each element appears on a new line,
                  making everything look neater. -->
-        {{ user_form.as_p }}
-        {{ profile_form.as_p }}
+        {{ beer_form.as_p }}
 
             <!-- Provide a button to click to submit the form. -->
-        <input type="submit" name="submit" value="Register" />
+        <input type="submit" name="submit" value="Adicionar" />
     </form>
-    {% endif %}
- 
- {% endblock %}
 
+  
+  {% endblock %}
