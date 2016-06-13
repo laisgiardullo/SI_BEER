@@ -2,8 +2,30 @@
   
   {% block content %}
   
+  	{% if user.is_authenticated %}
+  	<p>Click <a href="/logout/">aqui</a> para sair.</p>
+
+  	{% else %}
   	<p>Hey, welcome to my website!</p>
- 	<p>Click <a href="/accounts/login/">here</a> to login.</p>
- 	<p>Click <a href="/accounts/register/">here</a> to sign up.</p>
+ 	<p>Click <a href="/login/">aqui</a> para entrar.</p>
+ 	<p>Click <a href="/register/">aqui</a> para se registrar.</p>
+
+
+ 	{% endif %}
+
+ 	<p>Click <a href="/cervejas/">aqui</a> para ver nossas cervejas.</p>
+ 	<p>Click <a href="/pacotes/">aqui</a> para ver nossos pacotes.</p>
+ 	<br>
+ 	{% if user.is_staff and user.is_authenticated %}
+ 		<p>Click <a href="/add_beer/">aqui</a> para adicionar cervejas.</p>
+ 		<p>Click <a href="/del_beer/">aqui</a> para excluir cervejas.</p>
+ 		<p>Click <a href="/change_beer/">aqui</a> para alterar cervejas.</p>
+ 		<br>
+ 		<p>Click <a href="/add_pacote/">aqui</a> para adicionar pacote.</p>
+ 		<br>
+ 		<p>Click <a href="/add_combinacao/">aqui</a> para adicionar uma combinacao.</p>
+ 		<br>
+		<p>Click <a href="/add_fornecedor/">aqui</a> para adicionar fornecedores.</p> 		
+ 	{% endif %}
   
   {% endblock %}

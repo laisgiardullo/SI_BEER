@@ -1,0 +1,55 @@
+{% extends "webapp/header.html" %}
+  
+  {% block content %}
+  
+<!-- BEGIN PAGE CONTENT-->
+             <div class="row-fluid">
+                 <div class="span12">
+                     <!-- BEGIN BLANK PAGE PORTLET-->
+                     <div class="widget green">
+                         <div class="widget-title">
+                             <h4><i class="icon-tags"></i> Nossas cervejas </h4>
+                           <span class="tools">
+                               <a href="javascript:;" class="icon-chevron-down"></a>
+                               <a href="javascript:;" class="icon-remove"></a>
+                           </span>
+                         </div>
+                         <div class="widget-body">
+                             <div class="row-fluid">
+                                 <div class="pricing-title">
+                                     <h2>As melhores cervejas.</h2>
+                                     <h4>Todo mês uma seleção diferente no seu pacote BEER.</h4>
+                                 </div>
+                             </div>
+                             <div class="row-fluid">
+                                {% for data in cerveja %}
+                                 <div class="span3">
+                                     <div class="pricing-table terques">
+                                         <div class="pricing-head">
+                                             <h3> {{ data.marca }} </h3>
+                                             <h4>
+                                                 <span class="note"></span>{{ data.nome }} 
+                                                 <span></span></h4>
+                                         </div>
+                                         <ul>
+                                             <li><img src = "{{ MEDIA_URL }}{{ data.foto }}"> </li>
+                                             
+                                         </ul>
+                                         <div class="price-actions">
+                                             <form id="{{data.nome}}" method="post" action="/cerveja_detalhes/" enctype="multipart/form-data" name="{{data.nome}}"> {% csrf_token %}
+
+                                             <input type="submit" class="btn" name="{{data.nome}}" value="Ver detalhes" />
+                                            </form>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 {% endfor %}
+                             </div>
+                         </div>
+                     </div>
+                     <!-- END BLANK PAGE PORTLET-->
+                 </div>
+             </div>
+            <!-- END PAGE CONTENT-->
+  
+  {% endblock %}
