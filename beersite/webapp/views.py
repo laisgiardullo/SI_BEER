@@ -121,6 +121,7 @@ def add_beer(request):
 	return render_to_response('webapp/add_beer.html', {'beer_form': beer_form, 
 		'registered': registered}, context)
 
+@csrf_protect
 def del_beer(request):
 	return render_to_response('webapp/del_beer.html')
 
@@ -226,3 +227,64 @@ def assinar(request):
 		c = {}
 		c.update(csrf(request))
 		return render_to_response('webapp/login.html', c)
+
+def profile(request):
+	return render(request, 'webapp/profile.html')
+
+def user_assinaturas(request):
+	context = RequestContext(request)
+	nome = request.user.username
+	assinatura = Assinatura.objects.filter(cliente__user__username = nome)
+	return render_to_response('webapp/user_assinaturas.html', {'assinatura': assinatura}, context)
+	
+@csrf_protect
+def cancel_assinatura(request):
+	context = RequestContext(request)
+	if request.method == 'POST':
+		cancel = request.POST.getlist('checks')
+		assinaturas = Assinatura.objects.filter(id__in=cancel)
+		for i in assinaturas:
+			i.status = False
+			i.save()
+		nome = request.user.username
+		aux = Assinatura.objects.filter(cliente__user__username = nome)
+		return render_to_response('webapp/user_assinaturas.html', {'assinatura': aux}, context)
+	return render_to_response('webapp/home.html')
+
+def show_pacote(request):
+	context = RequestContext(request)
+	pacote = Pacote.objects.all()
+	return render_to_response('webapp/del_pacote.html', {'pacote': pacote}, context)
+
+@csrf_protect
+def del_pacote(request):
+	context = RequestContext(request)
+	if request.method == 'POST':
+		cancel = request.POST.getlist('checks')
+		pacotes = Pacote.objects.filter(id__in=cancel)
+		for i in pacotes:
+			i.delete()
+		aux = Pacote.objects.all()
+		return render_to_response('webapp/del_pacote.html', {'pacote': aux}, context)
+	return render_to_response('webapp/home.html')
+
+def update_combinacao(request):
+	context = RequestContext(request)
+	combinacao = Combinacao.objects.all()
+	return render_to_response('webapp/combinacoes.html', {'combinacao': combinacao}, context)
+
+@csrf_protect
+def del_combinacao(request):
+	context = RequestContext(request)
+	if request.method == 'POST':
+		cancel = request.POST.getlist('checks')
+		comb = Combinacao.objects.filter(id__in=cancel)
+		for i in comb:
+			if i.ativo:
+				i.ativo = False
+			else:
+				i.ativo = True
+			i.save()
+		aux = Combinacao.objects.all()
+		return render_to_response('webapp/combinacoes.html', {'combinacao': aux}, context)
+	return render_to_response('webapp/home.html')

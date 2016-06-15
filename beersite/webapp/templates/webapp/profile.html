@@ -1,0 +1,17 @@
+{% extends "webapp/header.html" %}
+  
+  {% block content %}
+  
+  	{% if user.is_authenticated %}
+  	<p>Click <a href="/logout/">aqui</a> para sair.</p>
+  	<p>Click <a href="/user/assinaturas">aqui</a> para ver suas assinaturas.</p>
+  	{% else %}
+  	<p>Hey, welcome to my website!</p>
+ 	<p>Click <a href="/login/">aqui</a> para entrar.</p>
+ 	<p>Click <a href="/register/">aqui</a> para se registrar.</p>
+
+
+ 	{% endif %}
+ 	
+  
+  {% endblock %}
