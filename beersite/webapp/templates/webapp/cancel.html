@@ -1,0 +1,6 @@
+{% extends "webapp/header.html" %}
+	{% block content %}
+		{% for idata in dels %}
+			<p>{{idata.dataInicio}}</p>
+		{% endfor %}
+	{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "webapp/header.html" %}
+  
+  {% block content %}
+  	{% if user.is_staff and user.is_authenticated %}
+<!-- END PAGE CONTAINER--><!-- BEGIN ADVANCED TABLE widget-->
+            <div class="row-fluid">
+                <div class="span12">
+                <!-- BEGIN EXAMPLE TABLE widget-->
+                <div class="widget red">
+                    <div class="widget-title">
+                        <h4><i class="icon-reorder"></i> Combinacoes</h4>
+                            <span class="tools">
+                                <a href="javascript:;" class="icon-chevron-down"></a>
+                                <a href="javascript:;" class="icon-remove"></a>
+                            </span>
+                    </div>
+                    <div class="widget-body">
+                    	<form id="form_assinaturas" method="post" action="/del_combinacao/" enctype="multipart/form-data">{% csrf_token %}
+	                        <table class="table table-striped table-bordered" id="sample_1">
+	                            <thead>
+	                            <tr>
+	                                <th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /></th>
+	                                <th>Nome</th>
+	                                <th class="hidden-phone">Pacote</th>
+	                                <th class="hidden-phone">Cervejas</th>
+	                                <th class="hidden-phone">Status</th>
+	                            </tr>
+	                            </thead>
+	                            <tbody>
+	                            {% for data in combinacao reversed %}                            
+	                            <tr class="odd gradeX">
+	                                <td><input type="checkbox" class="checkboxes" value="{{data.id}}" name="checks" /></td>
+	                                <td>{{data.nome}}</td>
+	                                <td class="hidden-phone">{{data.pacote.nome}}</td>
+	                                <td class="center hidden-phone">
+	                                	{% for a in data.cerveja.all %}
+	                                		{{a.nome}}, 
+	                                	{% endfor %}
+	                                </td>
+	                                <td class="hidden-phone">
+	                                {% if data.ativo == False %}
+	                                	<span class="label label-inverse">Inativo</span>
+	                                {% else %}
+										<span class="label label-success">Ativo</span>
+	                                {% endif %}
+	                                </td>
+	                            </tr>	              
+	                            {% endfor %}
+	                            <tr><td></td></tr>   
+	                            </tbody>
+	                        </table>
+	                        <input type="submit" name="submit" value="Inverter status">
+                        </form>
+                    </div>
+                </div>
+                <!-- END EXAMPLE TABLE widget-->
+                </div>
+            </div>
+
+            <!-- END ADVANCED TABLE widget-->
+      </div>
+	 	
+    {% else %}
+    	Acesso negado!
+    {% endif %}
+  {% endblock %}

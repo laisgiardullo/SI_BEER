@@ -32,4 +32,4 @@ class CombinacaoForm(forms.ModelForm):
 class PacoteForm(forms.ModelForm):
     class Meta:
         model = Pacote
-        fields = ('nome', 'valor', 'frequencia', 'descricao')
+        fields = ('nome', 'valor', 'frequencia', 'descricao', 'tipo')
