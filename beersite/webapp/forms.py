@@ -33,3 +33,4 @@ class PacoteForm(forms.ModelForm):
     class Meta:
         model = Pacote
         fields = ('nome', 'valor', 'frequencia', 'descricao', 'tipo')
+
