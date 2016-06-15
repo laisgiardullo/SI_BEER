@@ -9,6 +9,7 @@ import datetime
 from webapp.models import Usuario, Fornecedor, Cerveja, Tipo, Administrador, Pacote, Combinacao, Assinatura
 from webapp.forms import UserForm, UserProfileForm, FornecedorForm, BeerForm, PacoteForm, CombinacaoForm
 from django.template import RequestContext
+from django.contrib.auth.models import User
 
 def home(request):
 	return render(request, 'webapp/home.html')
@@ -288,3 +289,18 @@ def del_combinacao(request):
 		aux = Combinacao.objects.all()
 		return render_to_response('webapp/combinacoes.html', {'combinacao': aux}, context)
 	return render_to_response('webapp/home.html')
+
+@csrf_protect
+def delete_user(request):
+	return render_to_response('webapp/delete_user.html', {'full_name': request.user.username})
+
+@csrf_protect
+def delete_account(request):
+	username = request.user.username
+	user = User.objects.get(username=request.user.username)
+	user.delete()
+	return render_to_response('webapp/conta_cancelada.html', {'full_name': username})
+
+
+
+

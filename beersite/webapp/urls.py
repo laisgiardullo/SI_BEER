@@ -42,4 +42,6 @@ urlpatterns = [
     url(r'^cancel_assinatura/$', 'webapp.views.cancel_assinatura'),
     url(r'^update_combinacao/$', 'webapp.views.update_combinacao'),
     url(r'^del_combinacao/$', 'webapp.views.del_combinacao'),
+    url(r'^user/delete_user/$', 'webapp.views.delete_user'),
+    url(r'^user/delete_account/$', 'webapp.views.delete_account'),
 ]
