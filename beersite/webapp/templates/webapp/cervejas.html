@@ -38,8 +38,10 @@
                                          <div class="price-actions">
                                              <form id="{{data.nome}}" method="post" action="/cerveja_detalhes/" enctype="multipart/form-data" name="{{data.nome}}"> {% csrf_token %}
 
-                                             <input type="submit" class="btn" name="{{data.nome}}" value="Ver detalhes" />
+                                             <!-- <input type="submit" class="btn" name="{{data.nome}}" value="Ver detalhes" /> -->
                                             </form>
+                                            <!-- {{ data.tipo }} -->
+                                            {{ data.descricao }}
                                          </div>
                                      </div>
                                  </div>

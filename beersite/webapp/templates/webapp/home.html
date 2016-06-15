@@ -1,24 +1,130 @@
 {% extends "webapp/header.html" %}
-  
+{%load staticfiles%}
+{% load i18n%}  
   {% block content %}
+  <img src={% static 'img/Fundo1.png' %} alt="Metro Lab" />
+<!--    <p>Hey, welcome to my website!</p>
+  <p>Click <a href="/accounts/login/">here</a> to login.</p> -->
+  <!-- <p>Click <a href="/accounts/register/">here</a> to sign up.</p> -->
+  <p> </p>
+  <div class="row-fluid">
+    <div class="metro-nav metro-fix-view">
+    <div></div>
+                    <div class="metro-nav-block nav-block-orange double">
+                        <a href="/pacotes/" class="text-center" data-original-title="">
+                            <span class="value">
+                                <i class="icon-gift"></i>
+                                
+                            </span>
+                            <div>Veja nossos Pacotes de Assinatura</div>
+                           <!--  <div class="status">Escolha sua Assinatura</div> -->
+                        </a>
+                    </div>
+                    <div class="metro-nav-block nav-block-purple double">
+                        <a href="/cervejas/" class="text-center" data-original-title="">
+                            <span class="value">
+                                <i class="icon-gift"></i>
+                                
+                            </span>
+                            <div>Conheça nossas cervejas</div>
+                           <!--  <div class="status">Escolha sua Assinatura</div> -->
+                        </a>
+                    </div>
+                      {% if user.is_authenticated %}
+    
+                    <div class="metro-nav-block nav-block-blue">
+
+                        <a href="/user/profile/" class="text-center" data-original-title="">
+                            <span class="value">
+                                <i class="icon-user"></i>
+                                
+                            </span>
+                            <div>Veja seu perfil</div>
+                           <!--  <div class="status">Escolha sua Assinatura</div> -->
+                        </a>
+
+                    </div>
+    {% else %}
+    
+                    <div class="metro-nav-block nav-block-blue">
+                        <a href="/register/" class="text-center" data-original-title="">
+                            <span class="value">
+                                <i class="icon-pencil"></i>
+                                
+                            </span>
+                            <div>Cadastre-se</div>
+                           <!--  <div class="status">Escolha sua Assinatura</div> -->
+                        </a>
+                    </div>
+                    <div class="metro-nav-block nav-block-blue">
+
+                        <a href="/login/" class="text-center" data-original-title="">
+                            <span class="value">
+                                <i class="icon-user"></i>
+                                
+                            </span>
+                            <div>Entre na sua conta</div>
+                           <!--  <div class="status">Escolha sua Assinatura</div> -->
+                        </a>
+
+                    </div>
+                    </div>
+
+                    </div>
+
+
+  {% endif %}
+
+                    <div class="row-fluid">
+                      <div class="metro-nav metro-fix-view">
+
+<!--                     <div class="metro-nav-block nav-block-blue">
+                        <a href="/accounts/register/" class="text-center" data-original-title="">
+                            <span class="value">
+                                <i class="icon-pencil"></i>
+                                
+                            </span>
+                            <div>Cadastre-se</div>
+                           <!--  <div class="status">Escolha sua Assinatura</div> -->
+                       <!--  </a>
+                    </div>
+                    <div class="metro-nav-block nav-block-blue">
+
+                        <a href="/accounts/login/" class="text-center" data-original-title="">
+                            <span class="value">
+                                <i class="icon-user"></i>
+                                
+                            </span>
+                            <div>Entre na sua conta</div> -->
+                           <!--  <div class="status">Escolha sua Assinatura</div> -->
+<!--                         </a>
+
+                    </div> -->
+                     <!--  <div class="metro-nav-block nav-block-green long"> -->
+                      <!-- <div class="metro-nav-block nav-block-green double">
+                        <a href="#" class="text-center" data-original-title="">
+                            <span class="value">
+                                <i class="icon-gift"></i>
+                                
+                            </span>
+                            <div>Escolha sua Assinatura</div>
+                           <!--  <div class="status">Escolha sua Assinatura</div> -->
+<!--                         </a>
+                    </div>  --> -->
+
+                    </div>
+<img src={% static 'img/Passoapasso3.png' %} >
+                </div>
+
   
-  	{% if user.is_authenticated %}
-  	<p>Click <a href="/logout/">aqui</a> para sair.</p>
-  	<p>Click <a href="/user/profile/">aqui</a> para ver seu perfil.</p>
-  	{% else %}
-  	<p>Hey, welcome to my website!</p>
- 	<p>Click <a href="/login/">aqui</a> para entrar.</p>
- 	<p>Click <a href="/register/">aqui</a> para se registrar.</p>
-
-
- 	{% endif %}
+  	
  	<br>
  	<p>Click <a href="/cervejas/">aqui</a> para ver nossas cervejas.</p>
  	<p>Click <a href="/pacotes/">aqui</a> para ver nossos pacotes.</p>
  	<br>
  	{% if user.is_staff and user.is_authenticated %}
  		<p>Click <a href="/add_beer/">aqui</a> para adicionar cervejas.</p>
- 		<p>Click <a href="/show_beer/">aqui</a> para excluir cervejas.</p>
+ 		<p>Click <a href="/del_beer/">aqui</a> para excluir cervejas.</p>
  		<p>Click <a href="/change_beer/">aqui</a> para alterar cervejas.</p>
  		<br>
  		<p>Click <a href="/add_pacote/">aqui</a> para adicionar um pacote.</p>
@@ -29,5 +135,6 @@
  		<br>
 		<p>Click <a href="/add_fornecedor/">aqui</a> para adicionar fornecedores.</p> 		
  	{% endif %}
-  
-  {% endblock %}
+
+                            
+  {% endblock content%}
