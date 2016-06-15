@@ -1,0 +1,3 @@
+'ENGINE': 'mysql.connector.django', 
+
+'ENGINE': 'django.db.backends.mysql', 
