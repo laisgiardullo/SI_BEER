@@ -31,8 +31,19 @@
                         </a>
                     </div>
                       {% if user.is_authenticated %}
-    <p>Click <a href="/logout/">aqui</a> para sair.</p>
-    <p>Click <a href="/user/profile/">aqui</a> para ver seu perfil.</p>
+    
+                    <div class="metro-nav-block nav-block-blue">
+
+                        <a href="/user/profile/" class="text-center" data-original-title="">
+                            <span class="value">
+                                <i class="icon-user"></i>
+                                
+                            </span>
+                            <div>Veja seu perfil</div>
+                           <!--  <div class="status">Escolha sua Assinatura</div> -->
+                        </a>
+
+                    </div>
     {% else %}
     
                     <div class="metro-nav-block nav-block-blue">
@@ -139,4 +150,3 @@
 
                             
   {% endblock content%}
->>>>>>> templates

@@ -13,7 +13,7 @@ from django.contrib.auth.models import User
 from django.views.generic.edit import UpdateView
 
 def home(request):
-	return render(request, 'webapp/home.html')
+	return render(request, 'webapp/home.html' , {'nome': request.user.username})
 
 @csrf_protect
 def login(request):
