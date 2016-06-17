@@ -252,15 +252,11 @@
                        <!-- BEGIN SUPPORT -->
                        <li class="dropdown mtop5">
 
-                           <a class="dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Chat">
-                               <i class="icon-comments-alt"></i>
+                           <a class="dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Minhas Assinaturas">
+                               <i class="icon-tasks"></i>
                            </a>
                        </li>
-                       <li class="dropdown mtop5">
-                           <a class="dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Help">
-                               <i class="icon-headphones"></i>
-                           </a>
-                       </li>
+                       
                        <!-- END SUPPORT -->
                        <!-- BEGIN USER LOGIN DROPDOWN -->
                        <li class="dropdown">
@@ -302,14 +298,34 @@
          <!-- END RESPONSIVE QUICK SEARCH FORM -->
          <!-- BEGIN SIDEBAR MENU -->
           <ul class="sidebar-menu">
-
-
+{% if user.is_authenticated %}
               <li>
-                  <a class="" href="login.html">
+                  <a class="" href="/user/profile/">
                     <i class="icon-user"></i>
-                    <span>Login Page</span>
+                    <span>Meu Perfil</span>
                   </a>
               </li>
+              <li>
+                  <a class="" href="/user/assinaturas/">
+                    <i class="icon-gift"></i>
+                    <span>Minhas Assinaturas</span>
+                  </a>
+              </li>
+              <li>
+                  <a class="" href="/logout/">
+                    <i class="icon-key"></i>
+                    <span>Logout</span>
+                  </a>
+              </li>
+{% else %}
+
+              <li>
+                  <a class="" href="/login/">
+                    <i class="icon-user"></i>
+                    <span>Login</span>
+                  </a>
+              </li>
+{% endif %}
           </ul>
          <!-- END SIDEBAR MENU -->
       </div>

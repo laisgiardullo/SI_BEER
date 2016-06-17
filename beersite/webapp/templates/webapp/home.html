@@ -10,29 +10,30 @@
   <div class="row-fluid">
     <div class="metro-nav metro-fix-view">
     <div></div>
-                    <div class="metro-nav-block nav-block-orange double">
+                    <div class="metro-nav-block nav-block-orange long">
                         <a href="/pacotes/" class="text-center" data-original-title="">
                             <span class="value">
                                 <i class="icon-gift"></i>
                                 
                             </span>
-                            <div>Veja nossos Pacotes de Assinatura</div>
-                           <!--  <div class="status">Escolha sua Assinatura</div> -->
+                            <div>Pacotes de Assinatura</div>
+                           <div class="status">Conheça todos os pacotes disponíveis para assinatura</div>
                         </a>
                     </div>
-                    <div class="metro-nav-block nav-block-purple double">
+                    <div class="metro-nav-block nav-block-purple long">
                         <a href="/cervejas/" class="text-center" data-original-title="">
                             <span class="value">
-                                <i class="icon-gift"></i>
+                                <i class="icon-glass"></i>
                                 
                             </span>
-                            <div>Conheça nossas cervejas</div>
+                            <div>Nossas cervejas</div>
+                            <div class="status">Conheça todas nossas cervejas </div>
                            <!--  <div class="status">Escolha sua Assinatura</div> -->
                         </a>
                     </div>
                       {% if user.is_authenticated %}
     
-                    <div class="metro-nav-block nav-block-blue">
+                    <div class="metro-nav-block nav-block-blue long">
 
                         <a href="/user/profile/" class="text-center" data-original-title="">
                             <span class="value">
@@ -41,6 +42,18 @@
                             </span>
                             <div>Veja seu perfil</div>
                            <!--  <div class="status">Escolha sua Assinatura</div> -->
+                        </a>
+
+                    </div>
+                     <div class="metro-nav-block nav-light-green long">
+
+                        <a href="/user/assinaturas/" class="text-center" data-original-title="">
+                            <span class="value">
+                                <i class="icon-tasks"></i>
+                                
+                            </span>
+                            <div>Meus Pacotes</div>
+                           <div class="status">Veja suas assinaturas ativas</div>
                         </a>
 
                     </div>
